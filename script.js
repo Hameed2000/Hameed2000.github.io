@@ -510,6 +510,8 @@ let fadeBlackModes = {
     
     5: function(){
             
+            if (screen.width <= 500) return;
+        
             for (let i = 0; i < rowArr.length; i++){
                 let children = rowArr[i].getElementsByTagName("div");
                 for (let v = 0; v < children.length; v++){
@@ -518,6 +520,7 @@ let fadeBlackModes = {
             }
             //setInterval(function(){
             function delayMain() {
+                
                 let duration = 0;
                 for (let i = 0; i < rowArr.length; i++){
                     let children = rowArr[i].getElementsByTagName("div");
