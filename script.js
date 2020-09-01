@@ -509,54 +509,58 @@ let fadeBlackModes = {
     },
     
     5: function(){
-        setTimeout(function(){
-            setInterval(function(){
+            
+            for (let i = 0; i < rowArr.length; i++){
+                let children = rowArr[i].getElementsByTagName("div");
+                for (let v = 0; v < children.length; v++){
+                    children[v].style.transition = ".35s";
+                }
+            }
+            //setInterval(function(){
+            function delayMain() {
                 let duration = 0;
                 for (let i = 0; i < rowArr.length; i++){
                     let children = rowArr[i].getElementsByTagName("div");
-                    children = Array.prototype.slice.call(children);
-                    children.forEach((cell, idx) => {
+                    for (let v = 0; v < children.length; v++){
+                        
                        setTimeout(function(){
-                           if (i = 1) {
-                               console.log(cell.clientWidth);
-                           }
-                           cell.style.transition = ".35s";
-                           let orgWidth = cell.style.width, orgHeight = cell.style.height;
-                           cell.style.width = (cell.clientWidth * 1.15) + "px";
-                           cell.style.height = (cell.clientHeight * 1.15) + "px";
+
+                           children[v].style.transform = "scale(1.15)";
+
                            setTimeout(function(){
-                               cell.style.width = orgWidth 
-                               cell.style.height = orgHeight
+                               children[v].style.transform = "scale(.85)";
+
                            },  350);
                        }, duration);
-                    });
+                     }
+
                     duration = duration + 250                
                 }
 
                 setTimeout(function(){
+
                     for (let i = rowArr.length - 1; i >= 0; i--){
                         let children = rowArr[i].getElementsByTagName("div");
-                        children = Array.prototype.slice.call(children);
-                        children.forEach((cell, idx) => {
-                           setTimeout(function(){
-                               cell.style.transition = ".35s";
-                               let orgWidth = cell.style.width, orgHeight = cell.style.height;
-                               cell.style.width = (cell.clientWidth * 1.15) + "px";
-                               cell.style.height = (cell.clientHeight * 1.15) + "px";
+                        for (let v = 0; v < children.length; v++){
+                            setTimeout(function(){
+                               children[v].style.transform = "scale(1.15)";
+
                                setTimeout(function(){
-                                   cell.style.width = orgWidth 
-                                   cell.style.height = orgHeight
+                                   children[v].style.transform = "scale(.85)";
+
                                },  350);
                            }, duration);
-                        });
+                        }
                         duration = duration + 250
                     }
-                    console.log(duration);
-                }, 800 );    
 
-            }, 4500);
+                }, 800 );
+                setTimeout(delayMain, 4000);
+            }
+            
+            setTimeout(delayMain, 3000);
+            //}, 4000);
         
-        }, 3000);
         
     }
 }

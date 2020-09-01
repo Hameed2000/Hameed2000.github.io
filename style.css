@@ -37,7 +37,6 @@ p{
 #showcase .content-wrap{
     width: 800px;
     margin: 20px auto;
-
     position: absolute;
     top: 300px;
     right: 0;
@@ -1374,7 +1373,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     #showcase .content-wrap{
         width: 100%;
-        top: 250px;
+        top: 12em;
     }
     
     nav{
@@ -1392,7 +1391,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     #showcase .content-wrap{
         width: 100%;
-        top: 300px;
+        top: 15em;
     }
     
     #showcase h1{
@@ -1407,7 +1406,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     .color-grid-container{
         width: 650px;
-        height: calc(80);
+        height: calc(800px);
         min-height: 600px;
     }
     
@@ -1647,6 +1646,7 @@ footer #resume:hover, footer #resume:hover i::after{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         margin: auto;
+        margin-left: 30px;
     }
     
     #experiences h1{
