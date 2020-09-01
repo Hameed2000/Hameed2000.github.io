@@ -1295,7 +1295,7 @@ footer #resume:hover, footer #resume:hover i::after{
 
 /* Super Small Screen Media Query */
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     
     /* Showcase Section */
     
