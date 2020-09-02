@@ -1305,11 +1305,7 @@ footer #resume:hover, footer #resume:hover i::after{
 @media (max-width: 650px) {
     
     /* Showcase Section */
-    
-    #showcase .content-wrap{
-        width: 300px;
-        top: 10em !important;
-    }
+
     
     
     #row-one .cell, #row-five .cell{
@@ -1414,10 +1410,6 @@ footer #resume:hover, footer #resume:hover i::after{
 
 @media (max-width: 700px) { 
     
-    #showcase .content-wrap{
-        width: 100%;
-        top: 12em;
-    }
     
     nav{
         display: none;
@@ -1432,10 +1424,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     /* Header */
     
-    #showcase .content-wrap{
-        width: 100%;
-        top: 11em;
-    }
+   
     
     #showcase h1{
         font-size: 4em;
@@ -1602,10 +1591,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     /* Header */
     
-    #showcase .content-wrap{
-        width: 100%;
-        top: 10em;
-    }
+    
     
     #showcase h1{
         font-size: 4.25em;
@@ -1685,10 +1671,7 @@ footer #resume:hover, footer #resume:hover i::after{
 
 @media (min-width: 1250px) {
     
-    #showcase .content-wrap{
-        width: 100%;
-        top: 17em;
-    }
+    
     
     /* Expierence Section */
     
@@ -1889,4 +1872,23 @@ footer #resume:hover, footer #resume:hover i::after{
     
 }
 
+@media (max-height: 600px) {
+    #showcase .content-wrap{
+        width: 100%;
+        top: 8em !important;
+    }
+}
 
+@media (max-height: 800px) {
+    #showcase .content-wrap{
+        width: 100%;
+        top: 12em;
+    }
+}
+
+@media (min-height: 801px) {
+    #showcase .content-wrap{
+        width: 100%;
+        top: 17em;
+    }
+}
