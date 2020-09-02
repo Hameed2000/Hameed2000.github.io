@@ -145,16 +145,6 @@ function checkProgress() {
     
 }
 
-
-
-
-// ORIGINAL SEQUENCE INTRO
-/*document.querySelectorAll(".cell").forEach(function(cell, index){
-    cell.idx = index;
-    cell.style.filter = "blur(4px)";
-    cell.addEventListener("transitionend", cellFadeIn);
-}); */
-
 function cellFadeIn(){
     if (this.idx == 1){
         document.getElementById("heading-wrap").style.transform = "rotate3d(1,0,0,0deg)";
@@ -184,17 +174,17 @@ let webInCard = document.getElementById('website');
 let arrayTest = [
     
     mojo = {type: document.getElementById('mojo'),
-           projectTitle: "Mojo",
+           projectTitle: "Project: Mojo",
            bgImage: "url(mojo-thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d, Trello",
-           roles: "Project Manager, Programmer",
+           roles: "Project Manager, Programmer, Game Designer, Builder",
            desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam est animi magni magnam dolor totam fugiat voluptatem ipsa nihil, id architecto distinctio et cum officiis, vero accusamus iusto impedit culpa, quia cumque. Provident corporis mollitia sequi rem fugiat, magnam itaque quod eos eaque voluptatibus maxime ullam, voluptas dolorum rerum reprehenderit neque cumque sint similique"            
            }, 
     oil = {type: document.getElementById('oil-sim'),
            projectTitle: "Oil Simulator",
            bgImage: "url(Oil%20Simulator%20Thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d",
-           roles: "Project Manager, Programmer, Builder, Game Designer",
+           roles: "Project Manager, Programmer",
            desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam est animi magni magnam dolor totam fugiat voluptatem ipsa nihil, id architecto distinctio et cum officiis, vero accusamus iusto impedit culpa, quia cumque. Provident corporis mollitia sequi rem fugiat, magnam itaque quod eos eaque voluptatibus maxime ullam, voluptas dolorum rerum reprehenderit neque cumque sint similique"
           }, 
     website = {type: document.getElementById('website'),
@@ -234,7 +224,9 @@ document.addEventListener('mouseup', function(e) {
         setTimeout(function(){
             document.getElementById("tools-p").innerHTML = card.toolsUsed;
             document.getElementById("roles-p").innerHTML = card.roles;
+            document.getElementById("desc-p").innerHTML = card.desc;
             document.getElementById("card-img").style.backgroundImage = card.bgImage;
+            document.getElementById("card-title").innerHTML = card.projectTitle;
             typeCard.style.transform = "rotate3d(1,0,0,0deg)";
             typeCard.style.filter = "blur(0px)";
         }, 1)
