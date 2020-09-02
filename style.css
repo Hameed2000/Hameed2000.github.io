@@ -47,6 +47,7 @@ p{
 #heading-wrap{
     transform: rotate3d(1,0,0,90deg);
     transition: 1s;
+    z-index: 10;
 }
 
 #showcase h1, #showcase h2{
@@ -56,9 +57,7 @@ p{
     opacity: .75;
 }
 
-.z-test{
-    z-index: 10;
-}
+
 
 #showcase h1{
     font-size: 3.45em;
