@@ -53,9 +53,12 @@ p{
     display: inline-block;
     padding: .25em;
     font-weight: 300;
-    opacity: .8;
+    opacity: .75;
 }
 
+.z-test{
+    z-index: 10;
+}
 
 #showcase h1{
     font-size: 3.45em;
@@ -69,7 +72,7 @@ p{
     width: 20%;
     max-width: 500px;
     background-color: whitesmoke;
-    opacity: .5;
+    opacity: .55;
     height: 4px;
     border: none;
     border-radius: 33%;
@@ -91,12 +94,14 @@ p{
     display: grid;
     align-items: center;
     margin: 0 auto;
-    z-index: -1;
     
     grid-row-gap: 0px;
     grid-template-columns: 1fr 1fr 1fr 12fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1.15fr 1.3fr 1.15fr 1fr;
     opacity: 1;
+    
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;   
 }
 
 /* Setting up rows and columns for the Color Grid */
@@ -501,7 +506,7 @@ nav a:hover .navbar-text{
     width: 100%;
     height: 1000px;
     position: relative;
-    
+ 
     /*background-image: url(asset-a980580fb72a96faa711727172cbd0d4.png);*/
     background-image: url('My%20Drawing-1.sketchpad-layerExport%20(7).png');
     background-repeat: no-repeat;
@@ -688,6 +693,9 @@ nav a:hover .navbar-text{
     padding: 5px;
 }
 
+#topic{
+    margin: 10px;
+}
 
 .location-marker{
     width: 30px;
@@ -1427,7 +1435,7 @@ footer #resume:hover, footer #resume:hover i::after{
     
     #showcase .content-wrap{
         width: 100%;
-        top: 15em;
+        top: 11em;
     }
     
     #showcase h1{
@@ -1595,6 +1603,11 @@ footer #resume:hover, footer #resume:hover i::after{
     
     /* Header */
     
+    #showcase .content-wrap{
+        width: 100%;
+        top: 10em;
+    }
+    
     #showcase h1{
         font-size: 4.25em;
     }
@@ -1672,6 +1685,11 @@ footer #resume:hover, footer #resume:hover i::after{
 /* Large Screen Media Query */
 
 @media (min-width: 1250px) {
+    
+    #showcase .content-wrap{
+        width: 100%;
+        top: 17em;
+    }
     
     /* Expierence Section */
     

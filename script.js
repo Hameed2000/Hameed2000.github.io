@@ -35,7 +35,7 @@ let navTable = {
     projectsButton: {
         button: document.getElementById("projects-button"),
         location: function() {
-            return document.getElementById("projects-heading").offsetTop + 50;
+            return document.getElementById("projects-heading").offsetTop - 50;
         }
     },
     
@@ -273,7 +273,7 @@ for (let i = 0; i < rowArr.length; i++){
     let children = rowArr[i].getElementsByTagName("div");
     for (let v = 0; v < children.length; v++){
         children[v].style.transition = ".75s";
-        children[v].style.filter = "blur(20px) saturate(110%)";
+        children[v].style.filter = "blur(15px) saturate(110%)"; //20pxxxxx
     } 
 }
 
