@@ -323,7 +323,7 @@ nav{
     border-bottom: #30ac9a solid 4px;
     transform: scale(.5);
     transition: .65s;
-    filter: grayscale(100%) blur(100px);
+    filter: grayscale(100%) blur(50px);
 }
 
 nav *{
@@ -342,6 +342,19 @@ nav *{
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     opacity: 0;
+    display: inline-block;
+}
+
+#nav-bar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#profile-button, #education-button, #careers-button, #projects-button, #contact-button{
+    display: grid;
+    margin-top: 0px;
+    grid-template-rows: 0fr;
+    grid-row-gap: 0;
 }
 
 /*
@@ -363,7 +376,7 @@ nav a:hover .navbar-text{
 
 #education-button:hover, #education-button:hover i, #profile-button:hover, #profile-button:hover i{ 
     color: #30ac9a;
-    transform: skewY(-6deg) skewX(8deg) translateY(-9px);
+    transform: skewY(-6deg) skewX(8deg) translateY(-6px);
     font-size: 32px;
 }
 
@@ -371,12 +384,12 @@ nav a:hover .navbar-text{
     font-size: 18px;
     color: #303030;
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(-14px) skewY(-6deg) skewX(8deg) ;
 }
 
 #careers-button:hover, #careers-button:hover i{
     color: #30ac9a;
-    transform: translateY(-9px) rotate3d(1, 0, 0, -20deg);
+    transform: translateY(-3px) rotate3d(1, 0, 0, -8deg);
     font-size: 34px;
 }
 
@@ -384,12 +397,12 @@ nav a:hover .navbar-text{
     font-size: 18px;
     color: #303030;
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(-14px) rotate3d(1, 0, 0, -5deg);
 }
 
 #projects-button:hover, #projects-button:hover i, #contact-button:hover, #contact-button:hover i{ 
     color: #30ac9a;
-    transform: skewY(6deg) skewX(-8deg) translateY(-9px);
+    transform: skewY(6deg) skewX(-8deg) translateY(-6px);
     font-size: 32px;
 }
 
@@ -397,7 +410,7 @@ nav a:hover .navbar-text{
     font-size: 18px;
     color: #303030;
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(-14px) skewY(6deg) skewX(-8deg);
 }
 
 
@@ -975,7 +988,7 @@ nav a:hover .navbar-text{
 }
 
 .quick-facts-card p{
-    width: 75%;
+    width: 90%;
 }
 
 .project-card-h1{
@@ -1110,89 +1123,6 @@ nav a:hover .navbar-text{
 }
 
 
-
-
-
-
-/*
-#oil-sim-project-container{
-    background-color: #202020;
-    width: 380px;
-    border-radius: 20px;
-    padding-top: 20px;
-    margin: auto;
-}
-
-#oil-sim-card h2{
-    color: #dfdfdf;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-}
-
-#oil-sim-card p{
-    color: #7f7f7f;
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-    line-height: 20px;
-}
-
-#oil-sim-card a{
-    color: #7f7f7f;
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-    line-height: 20px;
-}
-
-#oil-sim-card hr{
-    width: 85%;
-    height: 3px;
-    border-radius: 20px;
-    border: none;
-    background-color: #cef28f;
-    padding: 0;
-    margin: 10px auto;
-}
-
-#oil-sim-card{
-    display: none;
-}
-
-#oil-sim: #oil-sim-card{
-    display: inline;
-}
-*/
-
-
-/* #project-info-card-container{
-    width: 380px;
-    margin: auto;
-    position: relative;
-    bottom: 850px;
-    
-} */
-
-/* #oil-image-info{
-    background-position: center;
-    background-image: url(Oil%20Simulator%20Thumbnail.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: solid 4px #63e1ff;
-    border-radius: 10%;
-    animation-name: filter-fade-in;
-    animation-duration: .5s;
-    filter: grayscale(100%) blur(1px);
-    width: 334px;
-    height: 235px;
-    margin:  auto;
-}
- */
-
-
-
-
 #footer{
     width: 100%;
     padding-bottom: 30px;
@@ -1304,6 +1234,7 @@ footer #resume:hover, footer #resume:hover i::after{
 
 /* Super Small Screen Media Query */
 
+
 @media (max-width: 650px) {
     
     /* Showcase Section */
@@ -1338,7 +1269,7 @@ footer #resume:hover, footer #resume:hover i::after{
     /* Expierence Section */
     
     #experiences h1{
-        font-size: 3.75em;
+        font-size: 3.8em;
     }
     
     #experiences .heading hr{
@@ -1400,29 +1331,51 @@ footer #resume:hover, footer #resume:hover i::after{
         padding-bottom: 5px;
     }
     
-    
-    /* Nav Bar */
-    
-    nav{
-        display: none;
-    }
-
-    
 }
 
 @media (max-width: 700px) { 
     
-    nav{
+    #nav-bar{
         display: none;
     }
     
 }
 
+@media (max-width: 650px){
+    /* Project Card */
+    
+    .project-card-container{
+        width: 300px !important;
+    }
+    
+    .project-cell-adjusted{
+        width: 340px !important;
+        height: 240px !important;
+    }
+    
+    .project-card-h1{
+        font-size: 3.4em !important;
+    }
+    
+    .project-card-container{
+        border: #1c1c1c solid 8px;
+    }
+    
+    .project-card-container hr{
+        width: 300px !important;
+    }
+    
+}
+
+@media (max-width: 1000px) and (min-width: 651px){
+    .project-card-container hr{
+        width: 400px !important;
+    }
+}
 
 @media (max-width: 1000px){
-        
-    .project-card-container{
-        width: calc(400px);
+     .project-card-container{
+        width: 400px;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr .8fr;
         grid-column-gap: 0px;
@@ -1430,7 +1383,6 @@ footer #resume:hover, footer #resume:hover i::after{
         
         bottom: 600px;
         justify-content: center;
-        border: white solid 2px;
     }
     
     .project-card-h1{
@@ -1447,7 +1399,7 @@ footer #resume:hover, footer #resume:hover i::after{
 
         grid-row-start: 0;
         grid-row-end: 1;
-        margin: auto;
+        margin: 20px auto;
 
     }
     
@@ -1475,10 +1427,7 @@ footer #resume:hover, footer #resume:hover i::after{
         text-align: center;
     }
     
-
-    
     .project-card-container hr{
-        width: 400px !important;
         margin: auto;
     }
     
@@ -1517,8 +1466,12 @@ footer #resume:hover, footer #resume:hover i::after{
         grid-column-start: 1;
         grid-column-end: 1;
         margin: auto;
-    }
+    }   
+    
 }
+
+
+
 
 /* Small Screen Media Query */
 
@@ -1770,9 +1723,7 @@ footer #resume:hover, footer #resume:hover i::after{
 /* Large Screen Media Query */
 
 @media (min-width: 1250px) {
-    
-    
-    
+
     /* Expierence Section */
     
     #education-container, #careers-container{
@@ -1848,75 +1799,6 @@ footer #resume:hover, footer #resume:hover i::after{
         grid-column-start: 1;
         grid-column-end: 1;
     }
-    
-    /*
-    
-    #star-container *{
-        display: inline-block;
-        display: none;
-    }
-    
-    #star-1{
-        width: 70px;
-        animation-name: unspin-star-1;
-        animation-duration: 1s;
-        transform: translate(-170px, -90px) rotate(333deg);
-    }
-
-    #star-2{
-        width: 63px;
-        transform: translate(-175px, -85px) rotate(-325deg);
-    }
-
-    #star-3{
-        width: 75px;
-        transform: translate(234px, 175px) rotate(305deg);
-    }
-
-    #star-4{
-        width: 59px;
-        transform: translate(230px, 157px) rotate(90deg);
-    }
-
-    #star-5{
-        width: 40px;
-        transform: translate(145px, 120px) rotate(30deg);
-    }
-    
-
-    
-    
-    @keyframes spin-star-1{
-        from{
-            transform: translate(-170px, -90px) rotate(333deg);
-        }
-        to{
-           transform: translate(-170px, -90px) rotate(340deg);
-        }
-    }
-    
-    @keyframes unspin-star-1{
-        from{
-            transform: translate(-170px, -90px) rotate(340deg);
-        }
-        to{
-           transform: translate(-170px, -90px) rotate(333deg);
-        }
-    }
-    
-    #star-1:hover{
-        animation-name: spin-star-1;
-        animation-duration: 1s;
-        transform: translate(-170px, -90px) rotate(340deg);
-    }
-    
-    #star-1:hover{
-        animation-name: spin-star-1;
-        animation-duration: 1s;
-        transform: translate(-170px, -90px) rotate(340deg);
-    }
-    
-    */
     
     #projects h1{
         font-size: 6.5em;
