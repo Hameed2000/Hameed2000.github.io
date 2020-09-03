@@ -178,21 +178,22 @@ let arrayTest = [
            bgImage: "url(mojo-thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d, Trello",
            roles: "Project Manager, Programmer, Game Designer, Builder",
-           desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam est animi magni magnam dolor totam fugiat voluptatem ipsa nihil, id architecto distinctio et cum officiis, vero accusamus iusto impedit culpa, quia cumque. Provident corporis mollitia sequi rem fugiat, magnam itaque quod eos eaque voluptatibus maxime ullam, voluptas dolorum rerum reprehenderit neque cumque sint similique"            
+           desc: "Project: Mojo is an open world magic fighting game that is currently in development. The roles I have in this project is to oversee all development and design, program, and assist in building the maps. My responsibilities in the programming side of things is to design and develop all enemy AI, combat/combat effects and hit detection, passive systems, and some backend systems.  While in development, Project: Mojo has allotted over 230,000 play sessions."            
            }, 
     oil = {type: document.getElementById('oil-sim'),
            projectTitle: "Oil Simulator",
            bgImage: "url(Oil%20Simulator%20Thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d",
            roles: "Project Manager, Programmer",
-           desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam est animi magni magnam dolor totam fugiat voluptatem ipsa nihil, id architecto distinctio et cum officiis, vero accusamus iusto impedit culpa, quia cumque. Provident corporis mollitia sequi rem fugiat, magnam itaque quod eos eaque voluptatibus maxime ullam, voluptas dolorum rerum reprehenderit neque cumque sint similique"
+           desc: "Oil Simulator is a fantasy simulator game where you create an oil tycoon. The responsibilities I had on this project were to manage and oversee the rest of the team, program and design aspects of the game, and to come up with new events. It’s worth noting I joined this game after development had already started. My responsibilities in the programming aspect was to design and implement a mining mini game where players can earn currency while their tycoon idly works, assist in fixing bugs, and adding new items. This game has allotted over 2.3 million play sessions, and has generated thousands of dollars of revenue."
+
           }, 
     website = {type: document.getElementById('website'),
                projectTitle: "Hameed's Website",
                bgImage: "url(website-multishot.png)",
                toolsUsed: "HTML/CSS, Javascript, Brackets IDE",
                roles: "Programmer, Designer",
-               desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam est animi magni magnam dolor totam fugiat voluptatem ipsa nihil, id architecto distinctio et cum officiis, vero accusamus iusto impedit culpa, quia cumque. Provident corporis mollitia sequi rem fugiat, magnam itaque quod eos eaque voluptatibus maxime ullam, voluptas dolorum rerum reprehenderit neque cumque sint similique"
+               desc: "My online portfolio is a website showcasing some of my experience, projects, and provides a way to get in contact with me. The website was designed and programmed completely by me and I used HTML, CSS, and Javascript to create it."
               }
 ];
  

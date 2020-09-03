@@ -687,7 +687,8 @@ nav a:hover .navbar-text{
 /* Background Logos for Expierence */
 
 .bg-logo-container{
-    margin: 50px auto;
+    margin: 0px auto;
+    margin-top: 30px;
     width: calc(350px + 20vw);
     background-position: center;
     background-repeat: no-repeat;
