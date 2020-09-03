@@ -1,5 +1,11 @@
 // I know I could have used JQuery to handle the animations but one of the points of this project was to introduce me to JavaScript :D
 
+// If any developer looks at this with this comment still here means my code is still a mess
+// I had to finish in a rush so I could include the website in my resume for an application
+// I will be reviewing, optimizing, documenting, and cleaning up the code later on
+// I hope you understand
+
+
 // Bools
 let debounce = true;
 let faded = false;
@@ -178,14 +184,14 @@ let arrayTest = [
            bgImage: "url(mojo-thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d, Trello",
            roles: "Project Manager, Programmer, Game Designer, Builder",
-           desc: "Project: Mojo is an open world magic fighting game that is currently in development. The roles I have in this project is to oversee all development and design, program, and assist in building the maps. My responsibilities in the programming side of things is to design and develop all enemy AI, combat/combat effects and hit detection, passive systems, and some backend systems.  While in development, Project: Mojo has allotted over 230,000 play sessions."            
+           desc: "Project: Mojo is an open world magic fighting game that is currently in development. My roles in this project include overseeing development and design, programming, and assisting with map building. On the programming side of things, I have designed and developed all enemy AI, combat effects and hit detection, passive systems, and some of the backend systems. Project: Mojo has currently achieved over 230,000 play sessions."            
            }, 
     oil = {type: document.getElementById('oil-sim'),
            projectTitle: "Oil Simulator",
            bgImage: "url(Oil%20Simulator%20Thumbnail.jpeg)",
            toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d",
            roles: "Project Manager, Programmer",
-           desc: "Oil Simulator is a fantasy simulator game where you create an oil tycoon. The responsibilities I had on this project were to manage and oversee the rest of the team, program and design aspects of the game, and to come up with new events. It’s worth noting I joined this game after development had already started. My responsibilities in the programming aspect was to design and implement a mining mini game where players can earn currency while their tycoon idly works, assist in fixing bugs, and adding new items. This game has allotted over 2.3 million play sessions, and has generated thousands of dollars of revenue."
+           desc: "Oil Simulator is a fantasy simulator game where you create an oil tycoon. The responsibilities I had on this project were to manage and oversee the team, program and design parts of the game, and to come up with in-game events. It's worth noting that I joined this project after the development had already been started. Some of the things that I did in the programming aspect were; designing and implementing a mining mini-game, assisting in fixing bugs, and adding new items. This game has allotted over 2.3 million play sessions and has generated thousands of dollars in revenue."
 
           }, 
     website = {type: document.getElementById('website'),
@@ -233,21 +239,6 @@ document.addEventListener('mouseup', function(e) {
         }, 1)
     }
 }); 
- 
- /*document.getElementById("oil-sim").onclick = function(e){
-    document.getElementById("oil-sim-card").style.display = "grid"; 
-    document.getElementById("oil-sim-card").style.transform = "rotate3d(1,0,0,0deg)";
-    document.getElementById("oil-sim-card").style.filter = "blur(0px)";
-    if (!document.getElementById("oil-sim").contains(e.target)) {
-        console.log('did it noob');
-        document.getElementById("oil-sim-card").style.transform = "rotate3d(1,0,0,90deg)";
-        document.getElementById("oil-sim-card").style.filter = "blur(1000px)";
-    }
-    
-    //document.body.addEventListener( "click", hideCard( document.getElementById("oil-sim-card") ) );
- }*/
-
-
 
 let rowArr = document.getElementsByClassName("row");
 let cellArr = document.getElementsByClassName("cell");
@@ -798,72 +789,3 @@ function sleep(sleepTime) {
 }
 
 
-
-//let del = 0;
-//let prop = true;
-//setInterval(function(){
-//        for (let i = 0; i < rowArr.length; i++){
-//                let children = rowArr[i].getElementsByTagName("div");
-//               
-//                for (let v = 0; v < children.length; v++){
-//                     let operation = prop && children[v].offsetWidth * 2 || children[v].offsetWidth / 2
-//                    children[v].style.transition = ".5s";
-//                    children[v].style.width = operation + "px";
-//                }      
-//        }
-//        prop = prop == true ? false : true;
-//        console.log(prop);
-//        del = del + 1000;
-//}, del);  
-
-
- 
-/*setTimeout(async function(){
-    while (true) {        
-        let delayTime = await fadeChooser();
-        
-        await sleep(delayTime);
-    }
-    
-}, 8000);*/
-
-/*setTimeout(function(){
-            fadeBlackModes[Math.floor(Math.random() * fadeBlackModesLength)]();
-        }, duration);*/
-
-
-/*setTimeout(function(){
-    let check = true;
-    const asyncFade = () => {
-      return fadeChooser();
-    }
-
-    const masterDuration = await asyncExample();
-     
-    while (check) {
-        check = false;
-        setTimeout(function(){
-            check = true;
-            
-        }, masterDuration);
-        
-    }
-    
-}, 8000) */
-
-//setTimeout(fadeChooser, 8000);
-/*setTimeout(colorTestTwo, 8000);
-setTimeout(colorTestOne, 14000);
-setTimeout(colorTestThree, 20000);*/
-
-// Do color changers next time on dragon ball z
-
-//#121212 
- 
-
-
-
-
- 
-
- 
