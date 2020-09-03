@@ -78,6 +78,38 @@ p{
     transition: 2s;
 }
 
+@keyframes bobbing{
+    from {
+        transform: translateY(0px);
+    } 
+    
+    to {
+        transform: translateY(15px);
+    }
+    
+}
+
+#down-arrow{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    z-index: -100;
+    font-size: 80px !important;
+    opacity: .75;
+    margin: auto;
+    margin-left: -25px;
+    transition: .5s;
+    transform: translateY(0px);
+    animation-name: bobbing;
+    animation-iteration-count: infinite;
+    animation-duration: .5s;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+
+
 /* Color Grid Container */
 
 .color-grid-container{

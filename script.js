@@ -11,6 +11,8 @@ let debounce = true;
 let faded = false;
 let inProg = false;
 
+let downArrow = document.getElementById("down-arrow");
+
 // Elements
 let navBar = document.getElementById('nav-bar');
 let profileSection = document.getElementById('profile-section');
@@ -75,7 +77,6 @@ window.addEventListener('scroll', function(e){
         debounce = false;
         checkProgress();
         debounce = true;
-        
     }
     
 }); 
@@ -95,7 +96,9 @@ function checkProgress() {
             // Setting bools
             faded = true;
             inProg = true
-
+            
+            downArrow.style.opacity = 0;
+            
             // Running fade-in function
             let fadeID = setInterval(fadeIn, 10, navBar);
             let origin = 0;
@@ -107,7 +110,7 @@ function checkProgress() {
                 element.style.filter = "grayscale(0%) blur(0px)";
                 if ( parseFloat(window.getComputedStyle(element).getPropertyValue("opacity")) >= 1 ){
                     origin = 1;
-                    element.style.opacity = 1;
+                    element.style.opacity = "1";
                     clearInterval(fadeID);
                     inProg = false;
 
@@ -123,6 +126,8 @@ function checkProgress() {
             faded = false;
             inProg = true;
 
+            downArrow.style.opacity = ".5";
+            
             // Running fade-out function
             let fadeID = setInterval(fadeOut, 10, navBar);
             let origin = 1;
