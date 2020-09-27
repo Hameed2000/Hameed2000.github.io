@@ -192,6 +192,7 @@ p{
     border-radius: 15px;
     filter: blur(75px) saturate(115%);
     transition: 4s;
+    transform: scale(.85);
 /*     animation-name: blurAnimation;
     animation-duration: 6s;
     animation-iteration-count: 1; */
