@@ -11,13 +11,13 @@ let debounce = true;
 let faded = false;
 let inProg = false;
 
-let downArrow = document.getElementById("down-arrow");
-
 // Elements
 let navBar = document.getElementById('nav-bar');
 let profileSection = document.getElementById('profile-section');
+let downArrow = document.getElementById("down-arrow");
 let profileSectionRect = profileSection.getBoundingClientRect();
 
+// Information on the nav bar buttons
 let navTable = {
     profileButton: {
         button: document.getElementById("profile-button"),
@@ -56,6 +56,81 @@ let navTable = {
     
 }
 
+function yGoal(){ // Gets the goal for when the navbar should appear
+    return (document.getElementById("showcase").offsetTop + document.getElementById("showcase").offsetHeight) - 425;
+}
+
+// Decides rather navbar should be visible or not and then does the appropiate action
+// Also now hides/shows the down arrow 
+function checkProgress() {
+    if(inProg == true) {
+        window.setTimeout(checkProgress, 100);
+            
+    } else {
+        if (window.scrollY >= yGoal() && !faded){  // If scroll position meets the y goal and it is invisible then make visible
+            // Setting bools
+            faded = true;
+            inProg = true
+            
+            downArrow.style.opacity = 0;
+            
+            // Running fade-in function
+            let fadeID = setInterval(fadeIn, 10, navBar);
+            let origin = 0;
+
+            // Fade-in function
+            function fadeIn(element){
+                origin = origin + .05;
+                element.style.transform = "scale(1)";
+                //element.style.filter = "grayscale(0%)";//blur(0px)";
+                if ( parseFloat(window.getComputedStyle(element).getPropertyValue("opacity")) >= 1 ){
+                    origin = 1;
+                    element.style.opacity = "1";
+                    clearInterval(fadeID);
+                    inProg = false;
+
+                } else{
+                    element.style.opacity = origin;
+                }
+
+            }
+
+        } else if (window.scrollY < yGoal() && faded == true) { // If scroll position does not meet the y goal and it is visible then make invisible
+            // Setting bools
+            faded = false;
+            inProg = true;
+
+            downArrow.style.opacity = ".5";
+            
+            // Running fade-out function
+            let fadeID = setInterval(fadeOut, 10, navBar);
+            let origin = 1;
+
+            // Fade-out function
+            function fadeOut(element){
+                origin = origin - 0.05;
+                element.style.transform = "scale(.5) translateY(-100px)";
+                //element.style.filter = "grayscale(100%)"; //blur(100px)";
+                if ( parseFloat(window.getComputedStyle(element).getPropertyValue("opacity")) <= 0.0 ){
+                    origin = 0;
+                    element.style.opacity = origin;
+                    clearInterval(fadeID);
+                    inProg = false
+
+                } else{
+                    element.style.opacity = origin;
+
+                }
+                
+            }
+
+        }
+        
+    }
+    
+}
+
+// Adds the click event/functionality to each of the buttons
 for (let button in navTable) {
 
     navTable[button].button.addEventListener("click", function(e){
@@ -81,172 +156,25 @@ window.addEventListener('scroll', function(e){
     
 }); 
 
-function yGoal(){
-    return (document.getElementById("showcase").offsetTop + document.getElementById("showcase").offsetHeight) - 425;
-}
-
-// Handles fading in and out of nav-bar
-function checkProgress() {
-    if(inProg == true) {
-        window.setTimeout(checkProgress, 100);
+downArrow.addEventListener("click", function(e){
+    e.preventDefault();
+    window.scroll({
+        top: navTable["profileButton"].location(),
+        behavior: "smooth"
             
-    } else {
-        // Checking to see if script should fade-in or fade-out nav-bar
-        if (window.scrollY >= yGoal() && faded == false){
-            // Setting bools
-            faded = true;
-            inProg = true
-            
-            downArrow.style.opacity = 0;
-            
-            // Running fade-in function
-            let fadeID = setInterval(fadeIn, 10, navBar);
-            let origin = 0;
-
-            // Fade-in function
-            function fadeIn(element){
-                origin = origin + .05;
-                element.style.transform = "scale(1)";
-                element.style.filter = "grayscale(0%) blur(0px)";
-                if ( parseFloat(window.getComputedStyle(element).getPropertyValue("opacity")) >= 1 ){
-                    origin = 1;
-                    element.style.opacity = "1";
-                    clearInterval(fadeID);
-                    inProg = false;
-
-                } else{
-                    element.style.opacity = origin;
-
-                }
-
-            }
-
-        } else if (window.scrollY < yGoal() && faded == true) {
-            // Setting bools
-            faded = false;
-            inProg = true;
-
-            downArrow.style.opacity = ".5";
-            
-            // Running fade-out function
-            let fadeID = setInterval(fadeOut, 10, navBar);
-            let origin = 1;
-
-            // Fade-out function
-            function fadeOut(element){
-                origin = origin - 0.05;
-                element.style.transform = "scale(.5) translateY(-100px)";
-                element.style.filter = "grayscale(100%) blur(100px)";
-                if ( parseFloat(window.getComputedStyle(element).getPropertyValue("opacity")) <= 0.0 ){
-                    origin = 0;
-                    element.style.opacity = origin;
-                    clearInterval(fadeID);
-                    inProg = false
-
-                } else{
-                    element.style.opacity = origin;
-
-                }
-                
-            }
-
-        }
-        
-    }
-    
-}
-
-function cellFadeIn(){
-    if (this.idx == 1){
-        document.getElementById("heading-wrap").style.transform = "rotate3d(1,0,0,0deg)";
-        document.getElementById("showcase-hr").style.width = "75%";
-    }
-    this.style.transition = ".75s";
-    this.style.filter = "blur(20px) saturate(110%)";
-    this.removeEventListener("transitionend", cellFadeIn);
-}
-
-function hideCard(card){
-    card.style.transform = "rotate3d(1,0,0,90deg)";
-    card.style.filter = "blur(1000px)";
-    
-    
-    setTimeout(function(){
-        card.style.display = "none";
-    }, 500);
-    
-} 
-
-let cardOnCheck = false;
-let mojoInCard = document.getElementById('mojo');
-let oilInCard = document.getElementById('oil-sim');
-let webInCard = document.getElementById('website');
-
-let arrayTest = [
-    
-    mojo = {type: document.getElementById('mojo'),
-           projectTitle: "Project: Mojo",
-           bgImage: "url(mojo-thumbnail.jpeg)",
-           toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d, Trello",
-           roles: "Project Manager, Programmer, Game Designer, Builder",
-           desc: "Project: Mojo is an open world magic fighting game that is currently in development. My roles in this project include overseeing development and design, programming, and assisting with map building. On the programming side of things, I have designed and developed all enemy AI, combat effects and hit detection, passive systems, and some of the backend systems. Project: Mojo has currently achieved over 230,000 play sessions."            
-           }, 
-    oil = {type: document.getElementById('oil-sim'),
-           projectTitle: "Oil Simulator",
-           bgImage: "url(Oil%20Simulator%20Thumbnail.jpeg)",
-           toolsUsed: "Roblox Studio, Lua, Gimp, Blender, Photoshop, Cinema4d",
-           roles: "Project Manager, Programmer",
-           desc: "Oil Simulator is a fantasy simulator game where you create an oil tycoon. The responsibilities I had on this project were to manage and oversee the team, program and design parts of the game, and to come up with in-game events. It's worth noting that I joined this project after the development had already been started. Some of the things that I did in the programming aspect were; designing and implementing a mining mini-game, assisting in fixing bugs, and adding new items. This game has allotted over 2.3 million play sessions and has generated thousands of dollars in revenue."
-
-          }, 
-    website = {type: document.getElementById('website'),
-               projectTitle: "Hameed's Website",
-               bgImage: "url(website-multishot.png)",
-               toolsUsed: "HTML/CSS, Javascript, Brackets IDE",
-               roles: "Programmer, Designer",
-               desc: "My online portfolio is a website showcasing some of my experience, projects, and provides a way to get in contact with me. The website was designed and programmed completely by me and I used HTML, CSS, and Javascript to create it."
-              }
-];
+    });
+});  
  
-function checkForCard(e){
-    for (i = 0; i < arrayTest.length; i++){
-        if (arrayTest[i].type.contains(e.target)){
-            return arrayTest[i];    
-        }
-    }
-    return false;
-}
 
-let typeCard = document.getElementById("card-container");
-// work on debounce and fix the bug, then essientally done
+/*document.getElementById('email').addEventListener("click", function(e){
+    e.preventDefault();
+    location.href = "mailto:hameed.k.awwad@gmail.com";
+});*/
 
-document.addEventListener('mouseup', function(e) {
-    let card = checkForCard(e);
-    
-    if (cardOnCheck && !card){
-        cardOnCheck = false
-        typeCard.style.transform = "rotate3d(1,0,0,90deg)";
-        typeCard.style.filter = "blur(1000px)";
-        setTimeout(function(){
-            typeCard.style.display = "none";
-        },500)
-    } else if (!cardOnCheck && card){
-        cardOnCheck = true
-        typeCard.style.display = "grid"; 
-        setTimeout(function(){
-            document.getElementById("tools-p").innerHTML = card.toolsUsed;
-            document.getElementById("roles-p").innerHTML = card.roles;
-            document.getElementById("desc-p").innerHTML = card.desc;
-            document.getElementById("card-img").style.backgroundImage = card.bgImage;
-            document.getElementById("card-title").innerHTML = card.projectTitle;
-            typeCard.style.transform = "rotate3d(1,0,0,0deg)";
-            typeCard.style.filter = "blur(0px)";
-        }, 1)
-    }
-}); 
-
+let gridContainer = document.getElementById("color-grid-containerID");
 let rowArr = document.getElementsByClassName("row");
 let cellArr = document.getElementsByClassName("cell");
+
 let colorGrid = {
     0: ["#b53333", "#b56033", "#b59433", "#b2b533"],
     1: ["#94b533", "#74b533", "#33b537", "#33b54c"],
@@ -257,15 +185,112 @@ let colorGrid = {
 
 document.getElementById("heading-wrap").style.transform = "rotate3d(1,0,0,0deg)";
 document.getElementById("showcase-hr").style.width = "75%";
+gridContainer.style.filter = "blur(15px) saturate(115%)";
 
-for (let i = 0; i < rowArr.length; i++){
+/*for (let i = 0; i < rowArr.length; i++){
     let children = rowArr[i].getElementsByTagName("div");
     for (let v = 0; v < children.length; v++){
-        children[v].style.transition = ".75s";
-        children[v].style.filter = "blur(15px) saturate(110%)"; //20pxxxxx
+        children[v].style.transition = "2s";
+        children[v].style.filter = "saturate(110%)"; //20pxxxxx blur(15px)
+        children[v].style.transition = ".25s";        
     } 
+}*/
+
+
+
+
+
+
+function rowTransform(){
+
+    if (screen.width <= 500) return;
+
+    function delayMain() {
+
+        let duration = 0;
+        for (let i = 0; i < rowArr.length; i++){
+               setTimeout(function(){
+                   rowArr[i].style.transform = "scale(1.25)";
+                   
+                   setTimeout(function(){
+                       rowArr[i].style.transform = "scale(1)";
+                   },  350);
+                   
+               }, duration);
+            
+            duration = duration + 250                
+        }
+
+        setTimeout(function(){
+            for (let i = rowArr.length - 1; i >= 0; i--){
+                    setTimeout(function(){
+                      rowArr[i].style.transform = "scale(1.25)";
+
+                       setTimeout(function(){
+                           rowArr[i].style.transform = "scale(1)";
+
+                       },  350);
+                        
+                   }, duration);
+                
+                duration = duration + 250
+            }
+
+        }, 600 );
+        
+        setTimeout(delayMain, 3700);
+    }
+
+    setTimeout(delayMain, 3000);
 }
 
+
+rowTransform();
+
+
+
+
+/*
+gridContainer.addEventListener("mouseover", function(event) {
+    console.log(event.target.className);
+    if (event.target.className == "cell") {
+        event.target.style.transform = "scale(1.15)";
+        event.target.inProgress = true;
+        setTimeout( function() {
+          event.target.inProgress = false;
+        }, 350);
+    }
+});
+
+gridContainer.addEventListener("mouseout", function(event) {
+    if (event.target.className == "cell") {
+        scaleDown(event.target);
+    }
+}); 
+
+
+function scaleDown(element){
+    if (element.inProgress){
+        setTimeout(function(){
+            scaleDown(element);
+        }, 350);
+    } else{
+        element.style.transform = "scale(.85)";
+        return;
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+/*
 function colorTestOne(){
     for (let i = 0; i < cellArr.length; i++){
         cellArr[i].style.transition = ".5s";
@@ -557,7 +582,7 @@ let fadeBlackModes = {
     }
 }
 
-fadeBlackModes[5]();
+ //fadeBlackModes[5]();
 
 let fadeInModes = {
     // Work from here!!!
@@ -793,4 +818,16 @@ function sleep(sleepTime) {
   return new Promise((resolve) => setTimeout(resolve, sleepTime));
 }
 
+
+function cellFadeIn(){
+    if (this.idx == 1){
+        document.getElementById("heading-wrap").style.transform = "rotate3d(1,0,0,0deg)";
+        document.getElementById("showcase-hr").style.width = "75%";
+    }
+    this.style.transition = ".75s";
+    this.style.filter = "blur(20px) saturate(110%)";
+    this.removeEventListener("transitionend", cellFadeIn);
+}
+
+*/
 
