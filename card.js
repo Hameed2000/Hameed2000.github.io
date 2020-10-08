@@ -66,37 +66,46 @@ let typeCard = document.getElementById("card-container");
 // work on debounce and fix the bug, then essientally done
 
 // Event listener to check when a client releases mouse from a clicked state 
-document.addEventListener('mouseup', function(e) { 
-    let card = checkForCard(e);
-    
-    if (cardOnCheck && !card){ // If a card is open and mouse is clicked off a card then it will hide the card that is open
-        cardOnCheck = false
-        typeCard.style.transform = "rotate3d(1,0,0,90deg)";
-        typeCard.style.filter = "blur(100px)";
-        setTimeout(function(){
-            typeCard.style.display = "none";
-        },500)
-        if (window.outerWidth <= 650) {
-            document.getElementById("card-container").style.transform = "translateY(300px)";
-        }
-    } else if (!cardOnCheck && card){ // If no card is open and mouse is clicked on a card then it will open the card
-        cardOnCheck = true
-        typeCard.style.display = "grid"; 
-        setTimeout(function(){
-            document.getElementById("tools-p").innerHTML = card.toolsUsed;
-            document.getElementById("roles-p").innerHTML = card.roles;
-            document.getElementById("desc-p").innerHTML = card.desc;
-            document.getElementById("card-img").style.backgroundImage = card.bgImage;
-            document.getElementById("card-title").innerHTML = card.projectTitle;
-            document.getElementById("project-link").innerHTML = card.linkDesc;
-            document.getElementById("project-link").href = card.link;
-            typeCard.style.filter = "blur(0px)";
+let inProgress = false;
+document.addEventListener('mouseup', function(e) {
+    if (!inProgress) {
+        let card = checkForCard(e);
+        if (cardOnCheck && !card){ // If a card is open and mouse is clicked off a card then it will hide the card that is open
+            inProgress = true;
+            cardOnCheck = false
+            typeCard.style.transform = "rotate3d(1,0,0,90deg)";
+            typeCard.style.filter = "blur(100px)";
+            setTimeout(function(){
+                typeCard.style.display = "none";
+                inProgress = false;
+            },500)
             if (window.outerWidth <= 650) {
-                typeCard.style.transform = "rotate3d(1,0,0,0deg) translateY(-300px)" ;
-            } else{
-                typeCard.style.transform = "rotate3d(1,0,0,0deg)";
+                document.getElementById("card-container").style.transform = "translateY(300px)";
             }
-            
-        }, 1);
+        } else if (!cardOnCheck && card){ // If no card is open and mouse is clicked on a card then it will open the card
+            inProgress = true;
+            cardOnCheck = true
+            typeCard.style.display = "grid"; 
+            setTimeout(function(){
+                document.getElementById("tools-p").innerHTML = card.toolsUsed;
+                document.getElementById("roles-p").innerHTML = card.roles;
+                document.getElementById("desc-p").innerHTML = card.desc;
+                document.getElementById("card-img").style.backgroundImage = card.bgImage;
+                document.getElementById("card-title").innerHTML = card.projectTitle;
+                document.getElementById("project-link").innerHTML = card.linkDesc;
+                document.getElementById("project-link").href = card.link;
+                typeCard.style.filter = "blur(0px)";
+                if (window.outerWidth <= 650) {
+                    typeCard.style.transform = "rotate3d(1,0,0,0deg) translateY(-300px)" ;
+                } else{
+                    typeCard.style.transform = "rotate3d(1,0,0,0deg)";
+                }
+                
+                setTimeout(function(){
+                    inProgress = false;
+                }, 500);
+
+            }, 1);
+        }
     }
 }); 
