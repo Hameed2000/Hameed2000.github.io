@@ -34,7 +34,7 @@ let arrayTest = [
                toolsUsed: "HTML/CSS, Javascript, Brackets IDE",
                roles: "Programmer, Designer",
                desc: "My online portfolio is a website showcasing some of my experience, projects, and provides a way to get in contact with me. The website was designed and programmed completely by me and I used HTML, CSS, and Javascript to create it.",
-               link: "hameed2000.github.io",
+               link: "https://hameed2000.github.io/",
                linkDesc: "www.hameed2000.github.io"
             
               }
