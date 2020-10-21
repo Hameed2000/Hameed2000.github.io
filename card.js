@@ -27,7 +27,8 @@ let arrayTest = [
            link: "https://www.roblox.com/games/1945891752/Oil-Simulator",
            linkDesc: "www.roblox.com/oil-simulator"
 
-          }, 
+          },
+    
     website = {type: document.getElementById('website'),
                projectTitle: "Hameed's Website",
                bgImage: "url(website-multishot.png)",
@@ -36,6 +37,17 @@ let arrayTest = [
                desc: "My online portfolio is a website showcasing some of my experience, projects, and provides a way to get in contact with me. The website was designed and programmed completely by me and I used HTML, CSS, and Javascript to create it.",
                link: "https://hameed2000.github.io/",
                linkDesc: "www.hameed2000.github.io"
+            
+              },
+    
+    algo = {type: document.getElementById('algo'),
+               projectTitle: "Algo Visuals",
+               bgImage: "url(algoBG.png)",
+               toolsUsed: "HTML/CSS, Javascript, Visual Studio",
+               roles: "Programmer, Designer",
+               desc: "THIS WEBSITE IS NOT COMPLETE! In completion this project will visualize algorithms, data structures, and path finding using a grid system. The website will also show information on each algorithm, data structure, and path finder implemented. The main purpose of this website was to implement these concepts and give me sort of an interactive cheatsheet I can refer to.",
+               link: "https://hameed2000.github.io/algo",
+               linkDesc: "www.hameed2000.github.io/algo"
             
               }
 ];
@@ -80,7 +92,7 @@ document.addEventListener('mouseup', function(e) {
                 inProgress = false;
             },500)
             if (window.outerWidth <= 650) {
-                document.getElementById("card-container").style.transform = "translateY(300px)";
+                document.getElementById("card-container").style.transform = "translateY(600px)";
             }
         } else if (!cardOnCheck && card){ // If no card is open and mouse is clicked on a card then it will open the card
             inProgress = true;
@@ -96,7 +108,7 @@ document.addEventListener('mouseup', function(e) {
                 document.getElementById("project-link").href = card.link;
                 typeCard.style.filter = "blur(0px)";
                 if (window.outerWidth <= 650) {
-                    typeCard.style.transform = "rotate3d(1,0,0,0deg) translateY(-300px)" ;
+                    typeCard.style.transform = "rotate3d(1,0,0,0deg) translateY(-600px)" ;
                 } else{
                     typeCard.style.transform = "rotate3d(1,0,0,0deg)";
                 }
