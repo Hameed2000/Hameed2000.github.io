@@ -84,6 +84,9 @@ let switchSpots = async (arr, c1, c2) => {
     // Now that they are in actual position it gets rid of the transformation and also changes transition to 0s to prevent cells from being animated
     // Timeout for a milisecond to give the cells a chance to get rid of their transformation then pause for 10 miliseconds to let the timeout finish its course, probably could have handled that last part a bit better
 
+    let transTime = ".0625s";
+    let sleepTime = 250;
+
     let c1Cell = c1.cell;
     let c2Cell = c2.cell;
 
@@ -97,10 +100,13 @@ let switchSpots = async (arr, c1, c2) => {
     let c1TopGoal = c2Top - c1Top;
     let c2TopGoal = c1Top - c2Top;
 
+    c1Cell.style.transition = transTime;
+    c2Cell.style.transition = transTime;
+
     c1Cell.style.transform = "translate(" + c1LeftGoal + "px, " + c1TopGoal + "px)";
     c2Cell.style.transform = "translate(" + c2LeftGoal + "px, " + c2TopGoal + "px)";
 
-    await sleep(1000);
+    await sleep(sleepTime);
 
     c1Cell.style.gridColumn = c2.column.toString();
     c1Cell.style.gridRow = c2.row.toString();
@@ -127,12 +133,12 @@ let switchSpots = async (arr, c1, c2) => {
     arr[v-1] = arr[v];
     arr[v] = placeHolder;
 
-    setTimeout(()=>{
+   /* setTimeout(()=>{
         c1Cell.style.transition = ".25s";
         c2Cell.style.transition = ".25s";
-    }, 50)
+    }, 50)*/
 
-    await sleep(100);
+    await sleep(0);
     
     return;
 
@@ -206,7 +212,7 @@ let amount = document.getElementById("amount-input");
 
 let algoButtons = document.getElementsByClassName("grid-nav-items");
 let deBounce = true;
-console.log(algoButtons[0]);
+
 for (i = 0; i < algoButtons.length; i++){
     algoButtons[i].addEventListener("click", (obj) => {
         if (deBounce) {
@@ -216,9 +222,7 @@ for (i = 0; i < algoButtons.length; i++){
                 deBounce = true;
                 insertSort(parseInt(amount.value), parseInt(minInt.value), parseInt(maxInt.value));
             }, 1000);
-            
         }
-        
     });
 }
 

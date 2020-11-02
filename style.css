@@ -844,7 +844,7 @@ nav a:hover .navbar-text{
     text-align: center;
     overflow: hidden;
     color: white;
-    margin-bottom: 000px;
+    margin-bottom: 200px;
 }
 
 /* Project Elements */
@@ -1101,7 +1101,7 @@ nav a:hover .navbar-text{
 }
 
 #tools-hr{
-    width: 275px !important;
+    width: 275px ;
 }
 
 .project-card-container hr{
@@ -1158,7 +1158,9 @@ nav a:hover .navbar-text{
     grid-column-gap: 45px;
 }
 
-
+.quick-facts-card hr{
+    height: 2px;
+}
 
 .tools-used-card{
     grid-row-start: 0;
@@ -1167,6 +1169,8 @@ nav a:hover .navbar-text{
     grid-column-start: 1;
     grid-column-end: 3;
 }
+
+
 
 .roles-used-card{
     grid-row-start: 1;
@@ -1357,12 +1361,11 @@ footer #resume:hover, footer #resume:hover i::after{
     }
 
     #education-heading h2, #careers-heading h2{
-        text-align: left;
+        text-align: center;
         font-size: 3em;
         font-weight: 300;
         padding: 0px;
         padding-bottom: 3px;
-        padding-left: 10px;
     }
 
     #education-heading hr, #careers-heading hr{
@@ -1380,7 +1383,7 @@ footer #resume:hover, footer #resume:hover i::after{
     /* Background Logos for Expierence */
 
     .bg-logo-container{
-        width: 100%;
+        width: 95%;
     }
     
     
@@ -1465,8 +1468,11 @@ footer #resume:hover, footer #resume:hover i::after{
     
     .project-card-container{
         width: 400px;
+/*
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr .8fr;
+*/
+        grid-template-rows: 1fr 1f 1fr 1fr;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
 
@@ -1475,19 +1481,25 @@ footer #resume:hover, footer #resume:hover i::after{
     }
 
     .project-card-h1{
+        grid-row: 0;
+/*
         grid-row-start: 0;
         grid-row-end: 1;
 
         grid-column-start: 0;
         grid-column-start: 1;
+*/
     }
     
     .project-cell-adjusted{
+        grid-row: 1;
         width: 400px;
         height: 300px;
 
+/*
         grid-row-start: 0;
         grid-row-end: 1;
+*/
         margin: 20px auto;
 
     }
@@ -1495,11 +1507,15 @@ footer #resume:hover, footer #resume:hover i::after{
     .quick-facts-card{
         justify-content: center;
         text-align: center;
-        
+        grid-column: 1;
+        grid-row: 1;
+        padding-top: 340px;
+/*
         grid-row-start: 2;
         grid-row-end: 3;
 
         grid-column-start: 1;
+*/
 
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
@@ -1521,39 +1537,45 @@ footer #resume:hover, footer #resume:hover i::after{
     }
     
     .tools-used-card{
-        grid-row-start: 0;
-        grid-row-end: 1;
-
+        margin: auto;
+        grid-row: 0;
         grid-column-start: 1;
         grid-column-end: 1;
         
     }
     
+    #tools-hr{
+        width: 100%;
+    }
 
     .roles-used-card{
         margin: auto;
-        grid-row-start: 1;
-        grid-row-end: 2;
 
+        grid-row: 1;
         grid-column-start: 1;
         grid-column-end: 1;
     }
 
     #links-card{
-        grid-row-start: 3;
-        grid-row-end: 3;
+        margin: auto;
+        width: 100%;
+        grid-row: 2;
         grid-column-start: 1;
         grid-column-end: 1;
-        width: 100%;
     }
 
     .project-desc{
+        grid-row: 2;
+/*
         grid-row-start: 3;
         grid-row-end: 4;
 
         grid-column-start: 1;
         grid-column-end: 1;
+*/
         margin: auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
         width: 100%;
     }   
     
